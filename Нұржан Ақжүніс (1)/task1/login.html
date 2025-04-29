@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="kk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Кіру | Үй бюджеті</title>
+    <link rel="stylesheet" href="login.css">
+</head>
+<body>
+    <div class="login-container">
+        <div class="login-left">
+            <div class="logo">
+                <img src="logo.png" alt="Үй бюджеті">
+            </div>
+            <h1>Кіру</h1>
+            <form id="loginForm">
+                <div class="form-group">
+                    <label for="email">E-mail</label>
+                    <input type="email" id="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="password">Құпия сөз</label>
+                    <input type="password" id="password" required>
+                    <a href="#" class="forgot-password">Құпия сөзді ұмыттыңыз ба?</a>
+                </div>
+                <div class="form-group remember-me">
+                    <input type="checkbox" id="remember">
+                    <label for="remember">Мені есте сақтау</label>
+                </div>
+                <button type="submit" class="login-btn">КІРУ</button>
+                <button type="button" class="apple-btn">
+                    <img src="google.png" alt="Apple">
+                    Google арқылы кіру
+                </button>
+            </form>
+        </div>
+        <div class="login-right"></div>
+    </div>
+    <script src="login.js"></script>
+</body>
+</html>

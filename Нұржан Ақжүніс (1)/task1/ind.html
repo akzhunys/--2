@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="kk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Үй бюджеті</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <div class="app-container">
+        <!-- Left Sidebar -->
+        <aside class="sidebar">
+            <div class="logo">
+                <img src="logo.png" alt="Үй бюджеті">
+            </div>
+            
+            <div class="monthly-overview">
+                <h3>Бюджет</h3>
+                <p class="balance">Жиналған ақша 600 590.00 KZT</p>
+            </div>
+
+            <nav class="sidebar-nav">
+                <div class="nav-item expenses">
+                    <i class="fas fa-minus"></i>
+                    <span>Шығындар</span>
+                </div>
+                <div class="nav-item income">
+                    <i class="fas fa-plus"></i>
+                    <span>Кірістер</span>
+                </div>
+                <div class="nav-item budget">
+                    <i class="fas fa-wallet"></i>
+                    <span>Бюджеттер</span>
+                </div>
+                <div class="nav-item">
+                    <i class="fas fa-calendar"></i>
+                    <span>Жоспарлау</span>
+                </div>
+                <div class="nav-item">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <span>Орындар</span>
+                </div>
+                <div class="nav-item">
+                    <i class="fas fa-file-export"></i>
+                    <span>Экспорт және есептер</span>
+                </div>
+                <div class="nav-item">
+                    <i class="fas fa-file-import"></i>
+                    <span>Шығу</span>
+                </div>
+                <div class="nav-item">
+                    <i class="fas fa-plug"></i>
+                    <span>Қолданбалар</span>
+                </div>
+            </nav>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Top Navigation -->
+            <nav class="top-nav">
+                <div class="date-nav">
+                    <button class="nav-btn"><i class="fas fa-chevron-left"></i></button>
+                    <span>2024</span>
+                    <button class="nav-btn"><i class="fas fa-chevron-right"></i></button>
+                </div>
+                <div class="view-controls">
+                    <button class="nav-btn"><i class="fas fa-search"></i></button>
+                    <button class="nav-btn"><i class="fas fa-filter"></i></button>
+                    
+                </div>
+            </nav>
+
+          
+            <!-- Chart Section -->
+            <div class="chart-section">
+                <h2>Жылдық есеп графикпен (2024) </h2>
+                <p>Бүгінге 50000 KZT салынды</p>
+                <canvas id="expenseChart"></canvas>
+            </div>
+
+            <!-- Transactions List -->
+           
+        </main>
+    </div>
+
+    <!-- Add Transaction Button -->
+    <button class="add-transaction-btn">
+        <i class="fas fa-plus"></i>
+    </button>
+
+    <!-- Add this before closing body tag -->
+        <!-- Обновим форму в модальном окне -->
+        <div class="modal" id="addTransactionModal">
+            <div class="modal-content">
+                <span class="close-btn">&times;</span>
+                <h2>Жаңа операция қосу</h2>
+                <form id="transactionForm">
+                    <div class="form-group">
+                        <label>Сома (KZT)</label>
+                        <input type="number" id="amount" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Түрі</label>
+                        <select id="type" required>
+                            <option value="income">Кіріс</option>
+                            <option value="expense">Шығын</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>Санат</label>
+                        <select id="category" required>
+                            <!-- Категории будут добавляться динамически -->
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>Күні</label>
+                        <input type="date" id="date" required>
+                    </div>
+                    <button type="submit" class="submit-btn">Сақтау</button>
+                </form>
+            </div>
+        </div>
+    <!-- Add before closing body tag -->
+        <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY"></script>
+    <script src="app.js"></script>
+</body>
+</html>
+<!-- Add after top-nav and before chart-section -->
+<div class="budget-stats">
+    <div class="stat-item">
+        <div class="stat-icon">
+            <i class="fas fa-laptop"></i>
+        </div>
+        <div class="stat-content">
+            <h3>Курстар</h3>
+            <p class="stat-number">210 000 KZT</p>
+        </div>
+    </div>
+    <div class="stat-divider"></div>
+    <div class="stat-item">
+        <div class="stat-icon">
+            <i class="fas fa-vote-yea"></i>
+        </div>
+        <div class="stat-content">
+            <h3>Салық</h3>
+            <p class="stat-number">56 000 KZT</p>
+        </div>
+    </div>
+    <div class="stat-divider"></div>
+    <div class="stat-item">
+        <div class="stat-icon">
+            <i class="fas fa-check-circle"></i>
+        </div>
+        <div class="stat-content">
+            <h3>Қажеттіліктер</h3>
+            <p class="stat-number">300 000 KZT</p>
+        </div>
+    </div>
+</div>
+
+
+<div class="timeline-section">
+    <div class="cycle-label">2024 Цикл</div>
+    <div class="timeline">
+        <div class="timeline-item">
+            <div class="date">09.10.2024</div>
+            <div class="icon"><i class="fas fa-users"></i></div>
+            <div class="label">Отбасылық кеш</div>
+        </div>
+        <div class="timeline-item">
+            <div class="date">14.10.2024</div>
+            <div class="icon"><i class="fas fa-edit"></i></div>
+            <div class="label">Ағылшын тілі курсы</div>
+        </div>
+        <div class="timeline-item">
+            <div class="date">21.10.2024</div>
+            <div class="icon"><i class="fas fa-laptop"></i></div>
+            <div class="label">Ноутбук жөндеу</div>
+        </div>
+        <div class="timeline-item">
+            <div class="date">01.11.2024</div>
+            <div class="icon"><i class="fas fa-vote-yea"></i></div>
+            <div class="label">Салық төлеу</div>
+        </div>
+        <div class="timeline-item">
+            <div class="date">07.11.2024</div>
+            <div class="icon"><i class="fas fa-chart-pie"></i></div>
+            <div class="label">Балаларға</div>
+        </div>
+        <div class="timeline-item">
+            <div class="date">31.12.2024</div>
+            <div class="icon"><i class="fas fa-file-invoice"></i></div>
+            <div class="label">Құжаттарды шығару</div>
+        </div>
+    </div>
+</div>
